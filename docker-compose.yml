@@ -1,14 +1,11 @@
 services:
   nextjs:
-    build:
-      context: ./OpenLAB-Web-FE
-      dockerfile: Dockerfile
+    build: ./OpenLAB-Web-FE
     container_name: nextjs
     ports:
       - "3000:3000"
     environment:
       - PORT=3000
-    command: npm start
     restart: always
 
   nginx:
@@ -20,7 +17,7 @@ services:
       - ./OpenLAB-Web-FE/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - nextjs
-    restart: always
+    # restart: always
 
   root_api:
     build: ./http-gateway-api
