@@ -1,0 +1,59 @@
+[{
+  "_id": {
+    "$oid": "6707f3439fcae76e6ccc9541"
+  },
+  "userId": {
+    "$oid": "66a8f90c26f73f84d88c8146"
+  },
+  "commodityType": "COURSE",
+  "moneyTraded": "500.000",
+  "commodityId": {
+    "$oid": "6707ed79e0d7abb03859bfa3"
+  },
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-10-10T15:31:15.132Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-10T15:31:15.132Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67287b3d5bfda00d6e3234bc"
+  },
+  "userId": {
+    "$oid": "66a8f90c26f73f84d88c8146"
+  },
+  "commodityType": "COURSE",
+  "moneyTraded": "500.000",
+  "commodityId": "672846c13f3e0525bbf1cb60",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-11-04T07:43:57.396Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-04T07:43:57.396Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740230d477aa52432d4dd86"
+  },
+  "userId": {
+    "$oid": "66a8f9cf26f73f84d88c8154"
+  },
+  "commodityType": "COURSE",
+  "moneyTraded": "500.000",
+  "commodityId": "672846c13f3e0525bbf1cb60",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-11-22T06:22:05.784Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-22T06:22:05.784Z"
+  },
+  "__v": 0
+}]

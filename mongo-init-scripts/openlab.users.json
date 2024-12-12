@@ -1,0 +1,200 @@
+[{
+  "_id": {
+    "$oid": "66a8f0cbc768398827d1b118"
+  },
+  "email": "tuantruong@gmail.com",
+  "password": "$2b$10$kMlDmTn3uU0VNle8J2idxeFaMWMKRLIi1qL8M74fOqy9G.u/ZIR3q",
+  "fullname": "Trần Tuấn Trường",
+  "address": "Nam Định",
+  "dateOfBirth": "07/02/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T13:55:23.299Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-30T13:55:23.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a8f93526f73f84d88c8149"
+  },
+  "email": "hoangdinh25032002@gmail.com",
+  "password": "$2b$10$dAkCgcUr4OT0eAelQnFEbee8Ero4vSIeKLijfT55rrAM9HJ1oyPVG",
+  "fullname": "Đinh Huy Hoàng",
+  "address": "Nam Định",
+  "dateOfBirth": "25/03/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:31:17.819Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-30T14:31:17.913Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a8f98226f73f84d88c814c"
+  },
+  "email": "hadinh2406@gmail.com",
+  "password": "$2b$10$lj/o5LPHbz1YU9mY98DQvuxHh663pcSoUh9th8fjGZZO40pg8xtxa",
+  "fullname": "Đinh Huy Hà",
+  "address": "Nam Định",
+  "dateOfBirth": "24/06/2004",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:32:34.501Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-30T14:32:34.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a8f9a926f73f84d88c814f"
+  },
+  "email": "vungocvinh@gmail.com",
+  "password": "$2b$10$GhsesB83.oT276hJKwJSKOKglFE.EG.5XN74mQquxnE4REAIc9nae",
+  "fullname": "Vũ Ngọc Vinh",
+  "address": "Nam Định",
+  "dateOfBirth": "06/03/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:33:13.515Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-30T14:33:13.611Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a8f9cf26f73f84d88c8154"
+  },
+  "email": "tranminhhieu@gmail.com",
+  "password": "$2b$10$IVTHxguNVskh9A5AAxeLfOlZ6v.eJLXhCHnjpFzBKg/Daydd5xPgK",
+  "fullname": "Trần Minh Hiếu",
+  "address": "Nam Định",
+  "dateOfBirth": "01/02/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:33:51.299Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-22T06:22:05.554Z"
+  },
+  "__v": 1,
+  "courses": [
+    {
+      "$oid": "672846c13f3e0525bbf1cb60"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a8f9ec26f73f84d88c8157"
+  },
+  "email": "thuantran0609@gmail.com",
+  "password": "$2b$10$.BbGkG/8xLDdBUHC9X7oou7VNuOQp.Bfo27.6Dl/zhIxrAyi0jGFK",
+  "fullname": "Trần Trọng Thuân",
+  "address": "Nam Định",
+  "dateOfBirth": "06/09/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:34:20.878Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-30T14:34:21.026Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a8fa1a26f73f84d88c815c"
+  },
+  "email": "minhpth0202@gmail.com",
+  "password": "$2b$10$5k5HEQi3u2vQCQevobKdguiil5FRxtUJ14zzD9p.bKVUbuC2VxbvW",
+  "fullname": "Phạm Thị Hồng Minh",
+  "address": "Thanh Hóa",
+  "dateOfBirth": "03/02/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:35:06.754Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-10T08:58:22.708Z"
+  },
+  "__v": 2,
+  "courses": []
+},
+{
+  "_id": {
+    "$oid": "66a8fa5426f73f84d88c815f"
+  },
+  "email": "diemquynh@gmail.com",
+  "password": "$2b$10$S9ic.D36U36jCWYAlNW97uIVWPp9dQ3GlXk04KQbhzLtPzvHOvt/i",
+  "fullname": "Trần Thị Diễm Quỳnh",
+  "address": "Nam Định",
+  "dateOfBirth": "03/02/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-07-30T14:36:04.491Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-31T08:51:36.038Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "111940895397757860901afc"
+  },
+  "email": "hoangdinh2503@gmail.com",
+  "fullname": "Đinh Huy Hoàng",
+  "image": "https://lh3.googleusercontent.com/a/ACg8ocLztqmhJSpzn65RvpjtucJMz0pQpwaDpAEjS96x41vGC3Z0Zw=s96-c",
+  "provider": "google",
+  "role": "user",
+  "courses": [],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-11-20T12:11:54.355Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-20T12:11:54.355Z"
+  },
+  "__v": 0,
+  "nodeId": [
+    "node1",
+    "node2"
+  ]
+},
+{
+  "_id": {
+    "$oid": "67504ccc1fdf74d2c3f7adf8"
+  },
+  "email": "tranminhhie12u@gmail.com",
+  "password": "$2b$10$oDjXQ21TvUy8QDYpTGBbTOERg2vH3VqvnxUWrGIiXxqwX6gq5.1gq",
+  "fullname": "Trần Nam Phong",
+  "address": "Nam Định",
+  "dateOfBirth": "25/03/2002",
+  "role": "user",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-12-04T12:36:28.061Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-04T12:36:28.061Z"
+  },
+  "__v": 0
+}]

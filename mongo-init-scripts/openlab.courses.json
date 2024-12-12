@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "672843801ccf09610cec0312"
+  },
+  "name": "KHOÁ HỌC THỰC HÀNH LẬP TRÌNH ESP8266",
+  "slug": "khoa-hoc-thuc-hanh-lap-trinh-esp8266",
+  "description": "OpenLAB cung cấp khóa học lập trình phát triển mạng di động 5G",
+  "benefit": [],
+  "image": "https://raw.githubusercontent.com/tranhung26092002/OpenLAB-Web-FE/refs/heads/dev-fe-next/src/assets/image/product/course/ai-ml/dd05cff47e48d9168059%20(1).jpg",
+  "video": "https://www.youtube.com/embed/xzu3QXwo1BU?si=A36ch_COhP-rivIR",
+  "price": "500.000",
+  "type": "COURSE",
+  "subType": "LTIOT",
+  "starNumber": "4.5",
+  "users": [],
+  "lessons": [],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-11-04T03:46:08.659Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-04T03:46:08.659Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "672846c13f3e0525bbf1cb60"
+  },
+  "name": "KHOÁ HỌC THỰC HÀNH MẠNG DI ĐỘNG 5G",
+  "slug": "khoa-hoc-thuc-hanh-mang-di-dong-5g",
+  "description": "OpenLAB cung cấp khóa học lập trình phát triển mạng di động 5G",
+  "benefit": [
+    "Define 5G and explain its history and evolution",
+    "Understand the key 5G requirements and standards",
+    "Describe the fundamentals of 5G RAN andCOR E",
+    "Explore 5G use cases",
+    "Evaluate the 5G impact on health and environment"
+  ],
+  "image": "https://raw.githubusercontent.com/tranhung26092002/OpenLAB-Web-FE/refs/heads/dev-fe-next/src/assets/image/product/course/ai-ml/dd05cff47e48d9168059%20(1).jpg",
+  "video": "https://www.youtube.com/embed/xzu3QXwo1BU?si=A36ch_COhP-rivIR",
+  "price": "500.000",
+  "type": "COURSE",
+  "subType": "LTIOT",
+  "starNumber": "4.5",
+  "users": [
+    {
+      "$oid": "66a8f90c26f73f84d88c8146"
+    },
+    {
+      "$oid": "66a8f9cf26f73f84d88c8154"
+    }
+  ],
+  "lessons": [
+    "670ea8b63c8014ddf1580c75"
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-11-04T04:00:01.316Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-22T06:22:05.530Z"
+  },
+  "__v": 2
+}]

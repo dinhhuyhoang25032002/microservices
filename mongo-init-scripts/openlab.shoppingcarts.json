@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "670a0d168b1d6668fbe3b4b6"
+  },
+  "userId": {
+    "$oid": "66a8f90c26f73f84d88c8146"
+  },
+  "listItem": [
+    {
+      "itemId": {
+        "$oid": "6707ed79e0d7abb03859bfa3"
+      },
+      "type": "COURSE",
+      "deleted": false
+    }
+  ],
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-10-12T05:45:58.503Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-12T05:45:58.503Z"
+  },
+  "__v": 0
+}]
