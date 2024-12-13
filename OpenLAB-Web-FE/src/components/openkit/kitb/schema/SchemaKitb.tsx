@@ -1,7 +1,7 @@
 import ControlBlock from "./ControlBlock";
 import DisplayLcd from "./DisplayLcd";
 import DisplayOled from "./DisplayOled";
-import InputSensor from "./InputSensor";
+// import InputSensor from "./InputSensor";
 
 type SchemaKitbProps = {
   temperature: string | number;
@@ -17,8 +17,8 @@ const SchemaKitb = ({
   light,
   gas,
   humidity,
-  led,
-  onSwitchChange,
+  // led,
+  // onSwitchChange,
 }: SchemaKitbProps) => {
   return (
     <div className="flex items-start justify-around py-16 w-full xs:flex-col xs:px-4 xs:gap-3 xs:py-10">
@@ -33,9 +33,9 @@ const SchemaKitb = ({
           light={light}
         />
       </div>
-      <div className="w-1/4 h-[537px] bg-white xs:w-full">
+      {/* <div className="w-1/4 h-[537px] bg-white xs:w-full">
         <InputSensor led={led} onSwitchChange={onSwitchChange} />
-      </div>
+      </div> */}
       <div className="w-1/4 h-[537px] bg-white xs:w-full">
         <ControlBlock />
       </div>
