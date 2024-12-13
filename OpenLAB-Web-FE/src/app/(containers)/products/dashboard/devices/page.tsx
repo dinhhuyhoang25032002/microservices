@@ -1,7 +1,7 @@
 "use client";
 
 import ControlDevice from "~/components/dashboard/ControlDevice";
-import { Input } from "~/components/ui/input";
+import FormSubmit from "~/components/dashboard/FormSubmit";
 import { useAuthStore } from "~/store/auth/AuthStore";
 
 export default function Page() {
@@ -18,9 +18,7 @@ export default function Page() {
             Thiết lập các thông số tối đa:
           </span>
           <div className="flex gap-10 ">
-            <Input placeholder="Nhiệt độ tối đa" />
-            <Input placeholder="Độ ẩm tối đa" />
-            <Input placeholder="Ánh sáng tối đa" />
+            <FormSubmit />
           </div>
         </div>
         <div className="h-[400px]  boder-2 border-gray-700 flex justify-center items-center gap-10">

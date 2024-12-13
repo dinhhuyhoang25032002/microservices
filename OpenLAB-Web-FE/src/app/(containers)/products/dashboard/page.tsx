@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import moment from "moment";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, set, get } from "firebase/database";
 import { LineChartComponent } from "~/components/dashboard/LineChart";
 import { BarChartComponent } from "~/components/dashboard/BarChart";
 import { database } from "~/configs/firebase.config";
@@ -32,7 +32,12 @@ export default function DashboardParams() {
   const [isNode, setNode] = useState("");
   const { user } = useAuthStore();
   const { _id, nodeId } = user;
-
+  const [timestampList, setTimestampList] = useState<Array<number>>([]);
+  const [valueTemperatureOfWeek, setValueTemperatureOfWeek] = useState<
+    number[]
+  >([]);
+  const [valueHumidyOfWeek, setValueHumidyOfWeek] = useState<number[]>([]);
+  const [valueLightOfWeek, setValueLightOfWeek] = useState<number[]>([]);
   useEffect(() => {
     setTemperatureHistory([]);
     setTimestampsTemperature([]);
@@ -167,6 +172,60 @@ export default function DashboardParams() {
       unsubscribeMax();
     };
   }, [_id, isNode, nodeId]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const yesterday =
+        moment().startOf("day").subtract(1, "day").valueOf() / 1000;
+
+      const listTimestamp = Array.from(
+        { length: 7 },
+        (_, index) => yesterday - index * 86400
+      );
+      setTimestampList(listTimestamp);
+
+      const promisesTemperature = listTimestamp.map(async (item) => {
+        const urlmaxTemperature = !isNode
+          ? `/${_id}/${
+              nodeId ? nodeId[0] : ""
+            }/dailyTemperature/${item}/maxTemperature`
+          : `/${_id}/${isNode}/dailyTemperature/${item}/maxTemperature`;
+        const dataRef = ref(database, urlmaxTemperature);
+        const snapshot = await get(dataRef);
+        return snapshot.exists() ? snapshot.val() : null;
+      });
+      const promisesHumidy = listTimestamp.map(async (item) => {
+        const urlmaxTemperature = !isNode
+          ? `/${_id}/${nodeId ? nodeId[0] : ""}/dailyHumidy/${item}/maxHumidy`
+          : `/${_id}/${isNode}/dailyHumidy/${item}/maxHumidy`;
+        const dataRef = ref(database, urlmaxTemperature);
+        const snapshot = await get(dataRef);
+        console.log(snapshot.val());
+
+        return snapshot.exists() ? snapshot.val() : null;
+      });
+      const promisesLight = listTimestamp.map(async (item) => {
+        const urlmaxTemperature = !isNode
+          ? `/${_id}/${nodeId ? nodeId[0] : ""}/dailyLight/${item}/maxLight`
+          : `/${_id}/${isNode}/dailyLight/${item}/maxLight`;
+        const dataRef = ref(database, urlmaxTemperature);
+        const snapshot = await get(dataRef);
+        console.log(snapshot.val());
+
+        return snapshot.exists() ? snapshot.val() : null;
+      });
+      setValueTemperatureOfWeek(await Promise.all(promisesTemperature));
+      setValueHumidyOfWeek(await Promise.all(promisesHumidy));
+      setValueLightOfWeek(await Promise.all(promisesLight));
+    };
+
+    // Gọi hàm fetchData
+    fetchData().catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }, [_id, isNode, nodeId]);
+
+  console.log(valueTemperatureOfWeek, valueHumidyOfWeek, valueLightOfWeek);
   return (
     <div className="w-full space-y-12 flex flex-col justify-center items-center ">
       <div className="w-[80%] flex justify-end">
@@ -211,7 +270,12 @@ export default function DashboardParams() {
         />
       </div>
       <div className="w-[80%]">
-        <BarChartComponent />
+        <BarChartComponent
+          dataX={timestampList}
+          dataHumidy={valueHumidyOfWeek}
+          dataLight={valueLightOfWeek}
+          dataTemperature={valueTemperatureOfWeek}
+        />
       </div>
     </div>
   );

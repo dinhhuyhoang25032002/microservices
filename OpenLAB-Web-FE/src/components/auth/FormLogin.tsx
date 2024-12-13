@@ -65,18 +65,11 @@ export default function LoginForm() {
     window.location.href = "https://localhost:3001/auth/google/login";
   };
   useEffect(() => {
-    const token = query.get("token") as string;
-
-    if (token) {
-      const validateJwt: { sub: string; email: string } = jwtDecode(token);
-      const { sub, email } = validateJwt;
-      const getUser = async () => {
-        // await fetch(`https://localhost:3001/auth?id=${sub}&email=${email}`, {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //     "Content-Type": "application/json",
-        //   },
-        // });
+    const handeAuth = async () => {
+      const token = query.get("token") as string;
+      if (token) {
+        const validateJwt: { sub: string; email: string } = jwtDecode(token);
+        const { sub, email } = validateJwt;
         try {
           const dataUser = await (
             await fetch(
@@ -109,10 +102,11 @@ export default function LoginForm() {
         } catch (error) {
           throw new Error(error as string);
         }
-      };
-      getUser();
-      router.replace("/");
-    }
+
+        router.replace("/");
+      }
+    };
+    handeAuth();
   }, [query, router, setIsAuth, setUser]);
 
   return (
