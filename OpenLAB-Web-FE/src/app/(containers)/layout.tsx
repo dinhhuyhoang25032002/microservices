@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OpenLAB",
-  description: "Nền tảng thực hành số",
+  title: "MKAdmin",
+  description: "Nền tảng quản lí dữ liệu số",
 };
 
 export default function RootLayout({

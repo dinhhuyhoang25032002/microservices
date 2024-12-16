@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
 import * as MongooseDelete from 'mongoose-delete'
 
 @Module({
@@ -29,6 +30,7 @@ import * as MongooseDelete from 'mongoose-delete'
         }
       }
     ),
+    UsersModule,
   ],
   controllers: [],
   providers: [],

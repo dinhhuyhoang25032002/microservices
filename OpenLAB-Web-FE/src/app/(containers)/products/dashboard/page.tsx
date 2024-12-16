@@ -19,7 +19,6 @@ import { useAuthStore } from "~/store/auth/AuthStore";
 export default function DashboardParams() {
   const [temperatureHistory, setTemperatureHistory] = useState<string[]>([]);
   const [humidityHistory, setHumidityHistory] = useState<string[]>([]);
-  // const [gasHistory, setGasHistory] = useState<number[]>([]);
   const [lightHistory, setLightHistory] = useState<string[]>([]);
   const [highestTemperature, setHighestTemperature] = useState(0);
   const [highestHumidy, setHighestHumidy] = useState(0);
@@ -29,9 +28,10 @@ export default function DashboardParams() {
   );
   const [timestampsHumidity, setTimestampsHumidity] = useState<string[]>([]);
   const [timestampsLight, setTimestampsLight] = useState<string[]>([]);
-  const [isNode, setNode] = useState("");
   const { user } = useAuthStore();
-  const { _id, nodeId } = user;
+  const { _id, nodeId, email } = user;
+  const [isNode, setNode] = useState(nodeId ? nodeId[0] : "");
+
   const [timestampList, setTimestampList] = useState<Array<number>>([]);
   const [valueTemperatureOfWeek, setValueTemperatureOfWeek] = useState<
     number[]
@@ -57,7 +57,7 @@ export default function DashboardParams() {
         }/dailyTemperature/${date}/maxTemperature`
       : `/${_id}/${isNode}/dailyTemperature/${date}/maxTemperature`;
     const dataRefMax = ref(database, urlMaxTemperature);
-    const unsubscribe = onValue(dataRef, (snapshot) => {
+    const unsubscribe = onValue(dataRef, async (snapshot) => {
       const currentValue = snapshot.val();
       if (currentValue > maxTemperature) {
         maxTemperature = currentValue;
@@ -73,6 +73,19 @@ export default function DashboardParams() {
         const newHistory = [...prev, snapshot.val()];
         return newHistory.length >= 10 ? newHistory.slice(1) : newHistory;
       });
+
+      const averageValue = getAverage(temperatureHistory);
+      if (averageValue >= 40) {
+        await fetch("/contact-mailer/notification", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            value: averageValue,
+            nodeId: isNode,
+            type: "Nhiệt độ",
+          }),
+        });
+      }
     });
     const unsubscribeMax = onValue(dataRefMax, (snapshot) => {
       if (snapshot.exists()) {
@@ -100,7 +113,7 @@ export default function DashboardParams() {
       ? `/${_id}/${nodeId ? nodeId[0] : ""}/dailyHumidy/${date}/maxHumidy`
       : `/${_id}/${isNode}/dailyHumidy/${date}/maxHumidy`;
     const dataRefMax = ref(database, urlMaxHumidy);
-    const unsubscribe = onValue(dataRef, (snapshot) => {
+    const unsubscribe = onValue(dataRef, async (snapshot) => {
       const currentValue = snapshot.val();
       if (currentValue > maxHumidy) {
         maxHumidy = currentValue;
@@ -117,6 +130,18 @@ export default function DashboardParams() {
         const newHistory = [...prev, snapshot.val()];
         return newHistory.length >= 10 ? newHistory.slice(1) : newHistory;
       });
+      const averageValue = getAverage(humidityHistory);
+      if (averageValue >= 60) {
+        await fetch("/contact-mailer/notification", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            value: averageValue,
+            nodeId: isNode,
+            type: "Độ ẩm",
+          }),
+        });
+      }
     });
     const unsubscribeMax = onValue(dataRefMax, (snapshot) => {
       if (snapshot.exists()) {
@@ -144,7 +169,7 @@ export default function DashboardParams() {
       ? `/${_id}/${nodeId ? nodeId[0] : ""}/dailyLight/${date}/maxLight`
       : `/${_id}/${isNode}/dailyLight/${date}/maxLight`;
     const dataRefMaxLight = ref(database, urlMaxLight);
-    const unsubscribe = onValue(dataRef, (snapshot) => {
+    const unsubscribe = onValue(dataRef, async (snapshot) => {
       const currentValue = snapshot.val();
       if (currentValue > maxLight) {
         maxLight = currentValue;
@@ -161,6 +186,19 @@ export default function DashboardParams() {
         const newHistory = [...prev, snapshot.val()];
         return newHistory.length >= 10 ? newHistory.slice(1) : newHistory;
       });
+
+      const averageValue = getAverage(lightHistory);
+      if (averageValue >= 60) {
+        await fetch("/contact-mailer/notification", {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            value: averageValue,
+            nodeId: isNode,
+            type: "Ánh sáng",
+          }),
+        });
+      }
     });
     const unsubscribeMax = onValue(dataRefMaxLight, (snapshot) => {
       if (snapshot.exists()) {
@@ -177,7 +215,6 @@ export default function DashboardParams() {
     const fetchData = async () => {
       const yesterday =
         moment().startOf("day").subtract(1, "day").valueOf() / 1000;
-
       const listTimestamp = Array.from(
         { length: 7 },
         (_, index) => yesterday - index * 86400
@@ -275,6 +312,7 @@ export default function DashboardParams() {
           dataHumidy={valueHumidyOfWeek}
           dataLight={valueLightOfWeek}
           dataTemperature={valueTemperatureOfWeek}
+          title={"Biểu đồ dữ liệu các thông số  trong 7 ngày"}
         />
       </div>
     </div>

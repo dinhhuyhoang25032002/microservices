@@ -32,6 +32,7 @@ type BarChartComponentProps = {
   dataX: Array<number>;
   dataTemperature?: Array<number>;
   dataHumidy?: Array<number>;
+  title: string;
   dataLight?: Array<number>;
 };
 const chartConfig = {
@@ -48,6 +49,7 @@ const chartConfig = {
 export function BarChartComponent({
   dataHumidy,
   dataLight,
+  title,
   dataTemperature,
   dataX,
 }: BarChartComponentProps) {
@@ -69,8 +71,8 @@ export function BarChartComponent({
   return (
     <Card className="">
       <CardHeader>
-        <CardTitle>Bar Chart - Multiple</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription></CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

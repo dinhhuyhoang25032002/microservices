@@ -47,10 +47,10 @@ export default function LeftContentHeader() {
                 "rgb(106 109 129) 3px 0px 0px, rgba(0, 0, 0, 0) 4px -1px 10px, rgba(0, 0, 0, 0) 16px 1px 2px, rgba(115, 86, 86, 0) 22px 18px 30px",
             }}
           >
-            OpenLAB
+            MKAdmin
           </span>
           <span className="text-[#D32F2F] font-semibold text-xl text-center tracking-widest xs:tracking-normal">
-            AI/IoT as a service
+            Digital Data Manage
           </span>
         </Link>
       </div>

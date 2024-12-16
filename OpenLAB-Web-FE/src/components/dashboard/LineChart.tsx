@@ -56,8 +56,8 @@ export function LineChartComponent({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
-          {title}:{getValue()}
+        <CardTitle className=" text-xl font-semibold">
+          {title}: {getValue()}
         </CardTitle>
         <CardDescription>
           {moment(date)
@@ -84,7 +84,7 @@ export function LineChartComponent({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 5)}
+              tickFormatter={(value) => value.slice(0, 4)}
             />
             <ChartTooltip
               cursor={false}

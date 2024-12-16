@@ -29,8 +29,10 @@ export default function FormSubmit() {
   const { user } = useAuthStore();
   const onSubmit = async (values: SubmitValueDeviceBodyType) => {
     const { _id } = user;
+    console.log(typeof values.temperature);
+
     const res = await (
-      await fetch("", {
+      await fetch("/users/add-value", {
         method: "PATCH",
         body: JSON.stringify({
           _id,

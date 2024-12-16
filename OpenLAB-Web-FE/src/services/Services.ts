@@ -13,5 +13,5 @@ export const handleLogout = () => {
 
 export const handleContact = (values: { email: string, phone: string, name: string, topic: string, content: string }) => {
     const { email, phone, name, topic, content } = values
-    return http.post('contact-mailer', { email, phone, name, topic, content })
+    return http.post('contact-mailer/support', { email, phone, name, topic, content })
 }
